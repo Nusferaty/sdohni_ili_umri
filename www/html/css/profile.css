@@ -1,0 +1,138 @@
+*{
+    padding:0; margin:0;
+    text-decoration:none;
+  }
+  
+  body{
+    width: auto;
+    height: auto;
+    background-color: #FFEFA0;
+    margin: 0;
+  }
+  
+  div{
+    width: auto;
+    height: auto;
+    padding:0; margin:0;
+  }
+  
+  .wrap{
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .menu{
+    background-color: #FCA652;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 40%;
+    gap: 220px;
+  }
+  
+  .option{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 80px;
+  
+    height: 76px;
+  }
+  
+  .img_button{
+    width: 31px;
+    height: 29px;
+  }
+  
+  .img_button_exit{
+    width: 165px;
+    height: 50px;
+  }
+  
+  .logo{
+    width: 155px;
+    height: 76px;
+  
+    font-family: 'Caveat', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 76px;
+  
+    color: #000000;
+  }
+  
+  .menu_text{
+    height: 50px;
+  
+    font-family: 'Caveat', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 50px;
+  
+    color: #000000;
+  }
+  
+  .links{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .profile_menu{
+    width: 1231px;
+    height: 758px;
+    display: flex;
+    margin-top: 2%;
+    margin-left: 16%;
+  
+    background: #FFD57E;
+    border-radius: 10px;
+  }
+  
+  .p_m{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 5%;
+    margin-top: 8%;
+    gap: 8%;
+  }
+  .profile_text{
+    height: 50px;
+  
+    font-family: 'Caveat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 50px;
+  
+    color: #000000;
+  }
+  
+  .line{
+    border-right: 1px solid #AC4B1C;
+    margin-left: 5%;
+  }
+  
+  .person_info{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 5%;
+    margin-top: 7%;
+    gap: 8%;
+  }

@@ -1,0 +1,96 @@
+*{
+  padding:0; margin:0;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFEFA0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login{
+  width: 716px;
+  height: 337px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  background: #FCA652;
+  border: 1px solid #AC4B1C;
+  border-radius: 20px;
+}
+
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 31px;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  color: #000000;
+}
+
+.pole{
+  display: flex;
+  margin-bottom: 4%;
+  margin-right: 10%;
+  margin-left: 10%;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+label{
+  display: flex;
+
+  flex-direction: column;
+
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 29px;
+  margin-bottom: 4%;
+
+  color: #000000;
+}
+
+input{
+  width: 395px;
+  height: 40px;
+
+  display: inline-block;
+  box-sizing: border-box;
+
+  flex-direction: column;
+  margin-left: 4%;
+
+  background: #FFEFA0;
+  border-radius: 10px;
+  margin-bottom: 4%;
+}
+
+.img_button_exit{
+  width: 15%;
+  height: 15%;
+  margin-left: 42%;
+}
+
+button.but{
+  margin-left: 45%;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #4676D7;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+}
