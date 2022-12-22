@@ -17,8 +17,8 @@
             "id_account" => $account['id_account'],
             "login" => $account['login'],
             "person_name" => $account['person_name'],
-            "phone" => $account['phone'],
-            "address" => $account['address']
+            "phone" => $account['phone']
+            // "address" => $account['address']
         ];
   
         header('Location: ../profile.php');

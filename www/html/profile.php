@@ -63,7 +63,7 @@
       <p class = "profile_text" >ФИО: <?=  $_SESSION['account']['person_name'] ?></p>
       <p class = "profile_text" >Номер телефона: <?=  $_SESSION['account']['phone'] ?></p>
       <p class = "profile_text" >Email: <?=  $_SESSION['account']['login'] ?></p>
-      <p class = "profile_text" >Адрес доставки: <?=  $_SESSION['account']['address'] ?></p>
+      <!-- <p class = "profile_text" >Адрес доставки: <?=  $_SESSION['account']['address'] ?></p> -->
     <a href=""><p class = "profile_text">Изменить пароль</p></a>
     <a href="" class="button" ><div class = "links">
         <p class = "menu_text">Редактировать профиль</p>
