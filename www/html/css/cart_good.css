@@ -1,20 +1,14 @@
-/* *{
+*{
     padding:0; margin:0;
     text-decoration:none;
   }
-   */
+  
   body{
     width: auto;
     height: auto;
     background-color: #FFEFA0;
     margin: 0;
   }
-  
-  /* div{
-    width: auto;
-    height: auto;
-    padding:0; margin:0;
-  } */
   
   .wrap{
     height: 5%;
@@ -104,20 +98,10 @@
     justify-content: space-around;
   } 
 
-  .block{
-    width: 50%;
-    height: 731px;
-    background: #FCA652;
-    border-radius: 20px;
-    margin:0;
-
-  }
-
   .img{
     margin-top: 7%;
     margin-bottom: 5%;
-    width: 65%;
-    height: 65%;
+    width: 80%;
   }
 
   .body{
@@ -138,15 +122,50 @@
   }
 
   .cart{
-    width: 50%;
-    display: block;
-    flex-direction: column;
+    display: flex;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     justify-content: center;
   }
   .part_1{
-
+    width: auto;
+    height: auto;
+    margin-bottom: 5%;
+  }
+  .part_text{
+    text-align: center;
+    margin-bottom: 5%;
   }
 
   .part_2{
+    width: auto;
+    height: auto;
+    margin-left: 5%;
+  }
+  
+  .colon{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    background: #FCA652;
+    border-radius: 20px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    justify-content: center;
+  }
 
+  .otz{
+    display: column;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .mes{
+    margin-top: 2%;
   }

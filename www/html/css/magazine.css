@@ -10,12 +10,6 @@
     margin: 0;
   }
   
-  div{
-    width: auto;
-    height: auto;
-    padding:0; margin:0;
-  }
-  
   .wrap{
     height: 5%;
     display: flex;
@@ -48,7 +42,6 @@
   
     height: 76px;
   }
-
   
   .img_button{
     width: 31px;
@@ -74,7 +67,6 @@
   }
   
   .menu_text{
-    /*width: 109px;*/
     height: 50px;
   
     font-family: 'Caveat', serif;
@@ -94,8 +86,6 @@
     gap: 15px;
   }
   
-
-  
   .buttons{
     height: 90px;
     display: flex;
@@ -106,8 +96,6 @@
   } 
 
   .block{
-    width: 500px;
-    height: 650px;
     background: #FCA652;
     border-radius: 20px;
     display: flex;
