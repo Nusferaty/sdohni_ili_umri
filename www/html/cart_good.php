@@ -53,19 +53,22 @@
   </div>
 </header>
 <body>
-    <div class = "block">
-        <img src="<?=  $good['picture'] ?>" class="img" alt="<?=  $good['name'] ?>">
-        <p class = "text" ><?=  $good['name'] ?></p>
-        <p class = "text" >Цена: <?=  $good['price'] ?></p>
-        <p class = "text" >Описание товара</p>
+  <div class = "cart">
+  <div class = "part_1">
+  <p class = "text" ><?=  $good['name'] ?></p>
+  <p class = "text" >Описание товара</p>
         <p class = "text" ><?=  $good['info'] ?></p>
-        <?php if (!empty ($messages)) {foreach ($messages as $message): ?>
-            <div class = "mes">
-                <p class = "text" ><?=  $message['person_name'] ?></p>
-                <p class = "text" ><?=  $message['message'] ?></p>
-        </div>
-        <?php endforeach; }?>
-    </div>
+  </div>
+  <div class = "part_2">
+  <img src="<?=  $good['picture'] ?>" class="img" alt="<?=  $good['name'] ?>">
+        <p class = "text" >Цена: <?=  $good['price'] ?></p>
+  </div>
+      <?php if (!empty ($messages)) {foreach ($messages as $message): ?>
+          <div class = "mes">
+              <p class = "text" ><?=  $message['person_name'] ?></p>
+              <p class = "text" ><?=  $message['message'] ?></p>
+          </div>
+      <?php endforeach; }?>
+  </div>
 </body>
-
 </html>
