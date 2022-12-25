@@ -16,8 +16,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <title>Каталог магазина</title>
-  <link rel="stylesheet" href="./css/cart_good.css">
+  <title>Конструктор</title>
+  <link rel="stylesheet" href="./css/lego.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

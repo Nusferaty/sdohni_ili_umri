@@ -12,7 +12,7 @@
 
 <header class = "wrap">
   <div class = "menu">
-    <p class = "logo">Штуки</p>
+    <a href = "index.php" class="button"><p class = "logo">Штуки</p></a>
     <div class = "option">
       <a href="magazine.php" class="button" ><div class = "links">
         <p class = "menu_text">Каталог</p>
@@ -21,7 +21,7 @@
       </a>
       <a href="" class="button" ><div class = "links">
         <p class = "menu_text">Конструктор</p>
-        <a href="" class="button" ><img src="./IMG/lego.png" class="img_button" alt="Конструктор товара"></a>
+        <a href="lego.php" class="button" ><img src="./IMG/lego.png" class="img_button" alt="Конструктор товара"></a>
       </div>
       </a>
       <a href="" class="button" ><div class = "links">
