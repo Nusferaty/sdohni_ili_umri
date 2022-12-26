@@ -23,7 +23,6 @@
   <meta charset="UTF-8"/>
   <title>Конструктор</title>
   <link rel="stylesheet" href="./css/lego.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -53,7 +52,8 @@
         <a href="/autorization.php">
           <?php 
           if(isset($_SESSION['account'])){
-            echo '<div class = "links"><img src="./IMG/profile.png" class="img_button" alt="Профиль пользователя"><p class = "menu_text">Профиль</p></div>';
+            echo '<div class = "links"><img src="./IMG/profile.png" class="img_button" alt="Профиль пользователя">
+            <p class = "menu_text">Профиль</p></div>';
           }
           else {
             echo '<img src="./IMG/exit.png"  class="img_button_exit" alt="Войти/выйти в профиль">';
@@ -64,45 +64,41 @@
   </div>
 </header>
 <body>
-<div class = "colon">
-  <div class = "part_text">
-    <p class = "text">Конструктор</p>
+  <div class = "colon">
+    <div class = "part_text">
+      <p class = "text">Конструктор</p>
+    </div>
+    <form action="vendor/new_lego.php" method="post">
+      <div class = "login">
+        <div class = "pole">
+          <label class = "text">Модель:</label>
+          <select name="model_id" class = "inp" placeholder="Модель:">
+            <?php foreach ($models as $model): ?>
+              <option value=<?= $model['id_model'] ?>>
+                <?= $model['model_name'] ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class = "pole">
+          <label class = "text">Вид резьбы:</label>
+          <select name="carving_id" class = "inp" placeholder="Вид резьбы:">
+            <?php foreach ($carvings as $carving): ?>
+              <option value=<?= $carving['id_carving'] ?>>
+                <?= $carving['carving_name'] ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+        <div class = "pole">
+          <p class = "text">Количество:</p><input type = "number" class = "inp" name = "amount" required>
+        </div>
+        <div class = "pole">
+          <p class = "text" >Описание заказа:</p><input type = "text" class = "inp" name = "description" required>
+        </div>
+      <div>
+      <button class = "but" type="submit">Добавить заказ</button>
+    </form>
   </div>
-  <form action="vendor/new_lego.php" method="post">
-    <div class = "login">
-    <div class = "pole">
-    <label>Модель</label>
-    <select name="model_id" placeholder="Модель:">
-      <?php foreach ($models as $model): ?>
-        <option value=<?= $model['id_model'] ?>>
-        <?= $model['model_name'] ?>
-        </option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-  <div class = "pole">
-    <label>Вид резьбы:</label>
-    <select name="carving_id" placeholder="Вид резьбы:">
-      <?php foreach ($carvings as $carving): ?>
-        <option value=<?= $carving['id_carving'] ?>>
-        <?= $carving['carving_name'] ?>
-        </option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-  <div>
-  <p class = "text">Количество:
-    <input type = "number" name = "amount" required></p>
-  </div>
-  <div>
-  <p class = "text" >Описание заказа:
-    <input type = "text" name = "description" required></p>
-  </p>
-  </div>
-  <div>
-    <button class = "but" type="submit">Добавить заказ</button>
-</div>
-</form>
-</div>
 </body>
 </html>

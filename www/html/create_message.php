@@ -1,19 +1,16 @@
 <?php 
     session_start();
     require_once './vendor/connect.php';
-    $sql = "SELECT * FROM carte where id_account = ".$_SESSION['account']['id_account'];
-    $query = $connect->query($sql);
-    while($temp = $query->fetch(PDO::FETCH_ASSOC)){
-        $cartes[] = $temp;
-      }
+    // $good_id = $_GET['id'];
+    // $_SESSION['last_good_id'] = $good_id;
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <title>Корзина</title>
-  <link rel="stylesheet" href="./css/carte.css">
+  <title>Каталог магазина</title>
+  <link rel="stylesheet" href="./css/create_message.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
@@ -56,24 +53,12 @@
 </header>
 <body>
   <div class = "colon">
-    <div class = "part_text">
-      <p class = "text">Добавленные товары:</p>
-      <p class = "text"><?php if (!empty ($cartes)) {foreach ($cartes as $carte): ?>
-      <div class = "mes">
-        <?php if ($carte['id_good'] == 0){
-          echo '<p class = "text" >Конструктор</p><p class = "text_1" >'.$carte['amount'].'</p>';
-          } 
-        else {
-          $sql = "SELECT name FROM goods where id_goods = ". $carte['id_good'];
-          $query = $connect->query($sql);
-          $good_name = $query->fetch(PDO::FETCH_ASSOC);
-          echo '<p class = "text" >'.$good_name['name'].'</p><p class = "text" >'.$carte['amount'].'</p>';
-        }
-        ?>
-      </div>
-    <?php endforeach; }?></p>
-      </div>
-    <a href="make_order.php" class="but_1" >Оформить заказ</a>
+  <form action="vendor/new_message.php" method="post">
+    <div class = "link">
+        <p class = "text">Введите отзыв:</p>
+        <input type = "text" class = "kol_vo" name = "message" required>
+        <button class = "but" type="submit">Добавить отзыв</button>
+        </div></form>
   </div>
 </body>
 </html>

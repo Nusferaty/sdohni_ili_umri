@@ -32,7 +32,8 @@
       </a>
       <a href="contact.php" class="button" ><div class = "links">
         <p class = "menu_text">Контакты</p>
-        <a href="contact.php" class="button" ><img src="./IMG/contact.png" class="img_button" alt="Контакты продавца"></a>
+        <a href="contact.php" class="button" >
+          <img src="./IMG/contact.png" class="img_button" alt="Контакты продавца"></a>
       </div>
       </a>
       <a href="carte.php" class="button" ><img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>
@@ -60,7 +61,8 @@
       <p class = "profile_text" >Email: <?=  $_SESSION['account']['login'] ?></p>
     <a href="pass_new.php" class="button" ><div class = "links">
         <p class = "menu_text">Редактировать профиль</p>
-        <a href="pass_new.php" class="button" ><img src="./IMG/settings.png" class="img_button" alt="Редактировать профиль"></a>
+        <a href="pass_new.php" class="button" >
+          <img src="./IMG/settings.png" class="img_button" alt="Редактировать профиль"></a>
       </div>
       <form action="vendor/logout.php">
       <button class = "but" type="submit">Выйти из профиля</button>

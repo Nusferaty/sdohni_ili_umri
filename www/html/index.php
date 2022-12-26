@@ -28,23 +28,26 @@
         <a href="lego.php" class="button" ><img src="./IMG/lego.png" class="img_button" alt="Конструктор товара"></a>
       </div>
       </a>
-      <a href="contact.php" class="button" ><div class = "links">
+      <a href="info.php" class="button" ><div class = "links">
         <p class = "menu_text">Контакты</p>
-        <a href="contact.php" class="button" ><img src="./IMG/contact.png" class="img_button" alt="Контакты продавца"></a>
+        <a href="info.php" class="button" ><img src="./IMG/contact.png" class="img_button" alt="Контакты продавца"></a>
       </div>
       </a>
       <?php 
           if(isset($_SESSION['account'])){
-            echo '<a href="carte.php" class="button" ><img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>';
+            echo '<a href="carte.php" class="button" >
+            <img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>';
           }
           else {
-            echo '<a href="autorization.php" class="button" ><img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>';
+            echo '<a href="autorization.php" class="button" >
+            <img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>';
           }?>
       <div class="exit">
         <a href="/autorization.php">
           <?php 
           if(isset($_SESSION['account'])){
-            echo '<div class = "links"><img src="./IMG/profile.png" class="img_button" alt="Профиль пользователя"><p class = "menu_text">Профиль</p></div>';
+            echo '<div class = "links"><img src="./IMG/profile.png" class="img_button" alt="Профиль пользователя">
+            <p class = "menu_text">Профиль</p></div>';
           }
           else {
             echo '<img src="./IMG/exit.png"  class="img_button_exit" alt="Войти/выйти в профиль">';

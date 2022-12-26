@@ -121,7 +121,7 @@
   }
 
   .text{
-    font-family: 'Caveat';
+    font-family: Caveat, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
