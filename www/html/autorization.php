@@ -26,7 +26,8 @@ if (isset($_SESSION['account'])) {
   </div>
   <div class = "pole_but">
     <button class = "but" type="submit">Войти</button>
-    <a href="login.php" class="button"><img src="./IMG/button_login.png" class="img_button" alt="Зарегестрироваться"></a>
+    <a href="login.php" class="button">
+      <img src="./IMG/button_login.png" class="img_button" alt="Зарегестрироваться"></a>
   </div>
 <?php
             if (isset($_SESSION['message'])) {

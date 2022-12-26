@@ -3,13 +3,20 @@
     if (!isset($_SESSION['account'])) {
         header('Location: /');
     }
+
+    require_once './vendor/connect.php';
+    $sql = "SELECT * FROM make_order";
+    $query = $connect->query($sql);
+    while($temp = $query->fetch(PDO::FETCH_ASSOC)){
+      $orders[] = $temp;
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <title>Онлайн магазин Штуки. Профиль пользователя</title>
+  <title>Онлайн магазин Штуки. История покупок</title>
   <link rel="stylesheet" href="./css/profile.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,17 +63,12 @@
   </div>
   <div class = "line"></div>
   <div class = "person_info">
-      <p class = "profile_text" >ФИО: <?=  $_SESSION['account']['person_name'] ?></p>
-      <p class = "profile_text" >Номер телефона: <?=  $_SESSION['account']['phone'] ?></p>
-      <p class = "profile_text" >Email: <?=  $_SESSION['account']['login'] ?></p>
-    <a href="pass_new.php" class="button" ><div class = "links">
-        <p class = "menu_text">Редактировать профиль</p>
-        <a href="pass_new.php" class="button" >
-          <img src="./IMG/settings.png" class="img_button" alt="Редактировать профиль"></a>
+    <?php if (!empty ($orders)) {foreach ($orders as $order): ?>
+      <div class = "mes">
+          <p class = "text" ><?=  $order['id_make_order'] ?></p>
+          <p class = "text" ><?=  $order['address'] ?></p>
       </div>
-      <form action="vendor/logout.php">
-      <button class = "but" type="submit">Выйти из профиля</button>
-      </form>
+    <?php endforeach; }?>
   </div>
 </div>
 </body>
