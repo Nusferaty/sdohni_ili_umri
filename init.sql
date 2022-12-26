@@ -16,29 +16,29 @@ create table Model (id_model serial PRIMARY KEY,
     model_name character varying(200) NOT NULL);
 create table Carving (id_carving serial PRIMARY KEY,
     carving_name character varying(200) NOT NULL);
-create table Lego (id_lego serial PRIMARY KEY,
-    id_model integer NOT NULL REFERENCES model (id_model) ON UPDATE CASCADE ON DELETE RESTRICT,
-    id_carving integer NOT NULL REFERENCES carving (id_carving) ON UPDATE CASCADE ON DELETE RESTRICT,
-    place real NOT NULL,
-    amount integer NOT NULL,
-    description character varying(2000) NOT NULL);
 create table Account (id_account serial PRIMARY KEY,
     person_name character varying(150) NOT NULL,
     login character varying(100) NOT NULL,
     password character(10) NOT NULL,
     phone character(10) NOT NULL);
+create table Lego (id_lego serial PRIMARY KEY,
+    id_model integer NOT NULL REFERENCES model (id_model) ON UPDATE CASCADE ON DELETE RESTRICT,
+    id_carving integer NOT NULL REFERENCES carving (id_carving) ON UPDATE CASCADE ON DELETE RESTRICT,
+    place real NOT NULL,
+    amount integer NOT NULL,
+    description character varying(2000) NOT NULL,
+    id_account integer NOT NULL REFERENCES account (id_account) ON UPDATE CASCADE ON DELETE RESTRICT);
 create table Carte (id_carte serial PRIMARY KEY,
     amount integer NOT NULL,
-    id_good serial REFERENCES goods (id_goods) ON UPDATE CASCADE ON DELETE RESTRICT,
+    id_good integer REFERENCES goods (id_goods) ON UPDATE CASCADE ON DELETE RESTRICT,
     date DATE NOT NULL,
     id_account integer NOT NULL REFERENCES account (id_account) ON UPDATE CASCADE ON DELETE RESTRICT,
-    id_lego serial REFERENCES lego (id_lego) ON UPDATE CASCADE ON DELETE RESTRICT);
+    id_lego integer REFERENCES lego (id_lego) ON UPDATE CASCADE ON DELETE RESTRICT);
 create table Variant_pay (id_variant_pay serial PRIMARY KEY,
     pay_name character varying(100) NOT NULL);
-create table Make_order (id_make_order uuid PRIMARY KEY,
+create table Make_order (id_make_order serial PRIMARY KEY,
     address text NOT NULL,
-    id_variant_pay integer NOT NULL REFERENCES variant_pay (id_variant_pay) ON UPDATE CASCADE ON DELETE RESTRICT,
-    id_carte integer NOT NULL unique references carte (id_carte));
+    id_variant_pay integer NOT NULL REFERENCES variant_pay (id_variant_pay) ON UPDATE CASCADE ON DELETE RESTRICT);
 INSERT INTO goods (name, price, info, picture) VALUES ('Деревянный вечный календарь', 2200, 'Необычный деревянный календарь станет прекрасным украшением на вашем рабочем столе. Специальная конструкция позволит использовать его на протяжении многих лет, что лишит вас необходимости обновлять свой календарь каждый новый год. Так же он может стать прекрасным подарок ко дню учителя!', './uploads/image_1.jpg'); 
 INSERT INTO goods (name, price, info, picture) VALUES ('Деревянный блокнот с гравировкой', 2550, 'Кравтовый блокнот станет прекрасным подарком для ваших близких. Уникальный дизайн и деревянная оплетка будут радовать своего владельца очень много времени!', './uploads/image_2.jpg'); 
 INSERT INTO goods (name, price, info, picture) VALUES ('Деревянный купюрница с отделениями', 1800, 'Можно не только дарить деньги, но и то, где их хранить. Данный подарок возволит сделать столь простой подарок достаточно оригинальным и запоминающимся!', './uploads/image_3.jpg'); 
@@ -60,3 +60,20 @@ INSERT INTO account (person_name, login, password, phone) VALUES ('Вило Ма
 INSERT INTO account (person_name, login, password, phone) VALUES ('Латунь Николай Аркадьевич', 'lohdyr@mail.ru', 'bdjhjf63k!', 9258764862);
 INSERT INTO account (person_name, login, password, phone) VALUES ('Филькова Юлия Борисовна', 'foiso43s@mail.ru', 'bcjdjf87k!', 9258757198);
 INSERT INTO variant_pay (pay_name) VALUES ('Онлайн'),('Картой при получении'),('Наличными при получении');
+
+CREATE OR REPLACE FUNCTION public.lego_carte_fnc()
+RETURNS trigger AS
+$$
+BEGIN
+insert into "carte" ("id_lego", "amount", "date", "id_account")
+values(new."id_lego", new."amount", current_date, new."id_account");
+return new;
+end;
+$$
+language 'plpgsql';
+
+CREATE TRIGGER lego_carte
+AFTER INSERT
+ON lego
+FOR EACH ROW
+EXECUTE FUNCTION lego_carte_fnc();

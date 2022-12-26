@@ -1,28 +1,23 @@
 <?php 
+     session_start();
+     if (!isset($_SESSION['account'])) {
+       header('Location: /autorization.php');
+   }
+     require_once './vendor/connect.php';
+     $sql = "SELECT * FROM variant_pay";
+     $query = $connect->query($sql);
+     while($temp = $query->fetch(PDO::FETCH_ASSOC)){
+       $variant_pays[] = $temp;
+     }
 
-    session_start();
-    if (!isset($_SESSION['account'])) {
-      header('Location: /autorization.php');
-  }
-    require_once './vendor/connect.php';
-    $sql = "SELECT * FROM model";
-    $query = $connect->query($sql);
-    while($temp = $query->fetch(PDO::FETCH_ASSOC)){
-      $models[] = $temp;
-    }
-    $sql = "SELECT * FROM carving";
-    $query = $connect->query($sql);
-    while($temp = $query->fetch(PDO::FETCH_ASSOC)){
-      $carvings[] = $temp;
-    }
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8"/>
-  <title>Конструктор</title>
-  <link rel="stylesheet" href="./css/lego.css">
+  <title>Офрмление заказа</title>
+  <link rel="stylesheet" href="./css/carte.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,45 +59,26 @@
   </div>
 </header>
 <body>
-<div class = "colon">
-  <div class = "part_text">
-    <p class = "text">Конструктор</p>
-  </div>
-  <form action="vendor/new_lego.php" method="post">
-    <div class = "login">
-    <div class = "pole">
-    <label>Модель</label>
-    <select name="model_id" placeholder="Модель:">
-      <?php foreach ($models as $model): ?>
-        <option value=<?= $model['id_model'] ?>>
-        <?= $model['model_name'] ?>
-        </option>
-      <?php endforeach; ?>
-    </select>
-  </div>
-  <div class = "pole">
+  <div class = "colon">
+  <div class = "cart">
+  <form action="vendor/make.php" method="post">
+        <div class = "link">
+        <div class = "pole">
     <label>Вид резьбы:</label>
-    <select name="carving_id" placeholder="Вид резьбы:">
-      <?php foreach ($carvings as $carving): ?>
-        <option value=<?= $carving['id_carving'] ?>>
-        <?= $carving['carving_name'] ?>
+    <select name="variant_pay" placeholder="Выберите способ оплаты:">
+      <?php foreach ($variant_pays as $pay): ?>
+        <option value=<?= $pay['id_variant_pay'] ?>>
+        <?= $pay['pay_name'] ?>
         </option>
       <?php endforeach; ?>
     </select>
   </div>
-  <div>
-  <p class = "text">Количество:
-    <input type = "number" name = "amount" required></p>
-  </div>
-  <div>
-  <p class = "text" >Описание заказа:
-    <input type = "text" name = "description" required></p>
+  <p class = "text" >Адрес:
+    <input type = "text" name = "address" required></p>
   </p>
+        </div>
+        <button class = "but" type="submit">Оформить заказ</button></form>
   </div>
-  <div>
-    <button class = "but" type="submit">Добавить заказ</button>
-</div>
-</form>
-</div>
+  </div>
 </body>
 </html>

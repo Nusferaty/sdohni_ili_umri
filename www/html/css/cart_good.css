@@ -87,7 +87,13 @@
     gap: 15px;
   }
   
-
+  .link{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 8%;
+    margin-bottom: 6%
+  }
   
   .buttons{
     height: 90px;
@@ -127,6 +133,8 @@
     margin-left: 5%;
     margin-right: 5%;
     justify-content: center;
+    border-bottom: 1px solid #AC4B1C;
+
   }
   .part_1{
     width: auto;
@@ -168,4 +176,11 @@
 
   .mes{
     margin-top: 2%;
+  }
+
+  .kol_vo{
+    width: 10%;
+    height: 10%;
+    margin-top: 8%;
+    margin-bottom: 6%
   }

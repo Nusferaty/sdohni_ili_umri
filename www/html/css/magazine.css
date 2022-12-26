@@ -101,7 +101,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: auto;
+    width: 419px;
+    height: auto;
   }
 
   .img{

@@ -28,10 +28,3 @@
         header('Location: ../autorization.php');
     }
     ?>
-
-<pre>
-    <?php
-    print_r($check_account);
-    print_r($account);
-    ?>
-</pre>

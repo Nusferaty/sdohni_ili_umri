@@ -10,12 +10,6 @@
     margin: 0;
   }
   
-  div{
-    width: auto;
-    height: auto;
-    padding:0; margin:0;
-  }
-  
   .wrap{
     height: 5%;
     display: flex;
@@ -45,8 +39,10 @@
     align-items: center;
     padding: 0;
     gap: 80px;
+  
     height: 76px;
   }
+
   
   .img_button{
     width: 31px;
@@ -91,19 +87,7 @@
     gap: 15px;
   }
   
-  h1{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 22%;
-    width: 449px;
-    height: 24px;
-    font-family: 'Inter', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #000000;
-  }
+
   
   .buttons{
     height: 90px;
@@ -112,4 +96,78 @@
     gap: 10px;
     align-items: center;
     justify-content: space-around;
+  } 
+
+  .img{
+    margin-top: 7%;
+    margin-bottom: 5%;
+    width: 80%;
+  }
+
+  .body{
+    display: flex;
+    margin-top: 5%;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .text{
+    font-family: 'Caveat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 32px;
+    color: #000000;
+  }
+
+  .cart{
+    display: flex;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+    border-bottom: 1px solid #AC4B1C;
+
+  }
+  .part_1{
+    width: auto;
+    height: auto;
+    margin-bottom: 5%;
+  }
+  .part_text{
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  .part_2{
+    width: auto;
+    height: auto;
+    margin-left: 5%;
+  }
+  
+  .colon{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    background: #FCA652;
+    border-radius: 20px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .otz{
+    display: column;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .mes{
+    margin-top: 2%;
   }

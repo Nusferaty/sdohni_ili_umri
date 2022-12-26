@@ -2,6 +2,7 @@
     session_start();
     require_once './vendor/connect.php';
     $good_id = $_GET['id'];
+    $_SESSION['last_good_id'] = $good_id;
     $sql = "SELECT * FROM goods where id_goods = ".$good_id;
     $query = $connect->query($sql);
     $good = $query->fetch(PDO::FETCH_ASSOC);
@@ -44,9 +45,15 @@
       </div>
       </a>
       <a href="" class="button" ><img src="./IMG/cart.png" class="img_button" alt="Корзина покупок"></a>
-      <div class = "exit">
-        <a href="autorization.php" class="button" >
-            <img src="./IMG/exit.png"  class="img_button_exit" alt="Войти/выйти в профиль">
+      <div class="exit">
+        <a href="/autorization.php">
+          <?php 
+          if(isset($_SESSION['account'])){
+            echo '<div class = "links"><img src="./IMG/profile.png" class="img_button" alt="Профиль пользователя"><p class = "menu_text">Профиль</p></div>';
+          }
+          else {
+            echo '<img src="./IMG/exit.png"  class="img_button_exit" alt="Войти/выйти в профиль">';
+          }?>
         </a>
       </div>
     </div>
@@ -65,6 +72,20 @@
     <div class = "part_2">
     <img src="<?=  $good['picture'] ?>" class="img" alt="<?=  $good['name'] ?>">
     <p class = "text" >Цена: <?=  $good['price'] ?></p>
+    <?php 
+      if(isset($_SESSION['account'])){
+        echo '<form action="vendor/new_good.php" method="post">
+        <div class = "link">
+        <input type = "number" class = "kol_vo" name = "amount" required>
+        <button class = "but" type="submit">Добавить в корзину</button>
+        </div></form>';
+        }
+      else {
+        echo '';
+        }?>
+    <a href = "magazine.php">
+        <p class = "text">Обратно в каталог</p>
+    </a>
     </div>
     </div>
     <div class = "otz">

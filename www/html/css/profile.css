@@ -136,3 +136,16 @@
     margin-top: 7%;
     gap: 8%;
   }
+
+  .but{
+    width: auto;
+    appearance: none;
+    border: 0;
+    background: #FFEFA0;
+    border-radius: 13px;
+    color: black;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+  }

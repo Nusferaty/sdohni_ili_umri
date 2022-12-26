@@ -1,10 +1,8 @@
 <?php
 session_start();
-
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['account'])) {
     header('Location: profile.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +11,6 @@ if (isset($_SESSION['user'])) {
   <meta charset="UTF-8"/>
   <title>Войти в профиль</title>
   <link rel="stylesheet" href="./css/autorization.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <form action="vendor/signin.php" method="post">
@@ -27,8 +24,10 @@ if (isset($_SESSION['user'])) {
     <label>Пароль</label>
     <input type="password" name="password" placeholder="Введите Ваш пароль" required>
   </div>
+  <div class = "pole_but">
     <button class = "but" type="submit">Войти</button>
-</div>
+    <a href="login.php" class="button"><img src="./IMG/button_login.png" class="img_button" alt="Зарегестрироваться"></a>
+  </div>
 <?php
             if (isset($_SESSION['message'])) {
                 echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
